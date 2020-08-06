@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+Lib
+Scripts
+pickleTest.py
+__pycache__
+.ipynb_checkpoints
