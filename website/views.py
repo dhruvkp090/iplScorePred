@@ -31,7 +31,7 @@ def result(request):
     temp_array.append(wickets_in_prev_5)
     data = np.array([temp_array])
     my_prediction = int(regressor.predict(data)[0])
-    low = my_prediction - 10
-    high = my_prediction + 4
+    low = my_prediction - 8
+    high = my_prediction + 7
 
-    return render(request, 'result.html', {'low': low, 'high': high})
+    return render(request, 'result.html', {'low': low, 'high': high, 'batting': request.POST['bat_team']})

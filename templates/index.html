@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -15,20 +17,68 @@
     <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
+<style>
+    body {
+        background-image: url("{% static 'img/ipl.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .jumbotron {
+        background: none;
+        color: #fcfcfc;
+    }
+
+    .footer {
+        background-color: #D1C4E9;
+        margin-top: 50px;
+        padding: 15px 0px;
+        margin-bottom: 0px auto;
+    }
+</style>
 
 <body>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class="jumbotron">
-        <h1>IPL Score Predictor</h1>
-    </div>
+
     <div class="container">
         {% block content %}
         {% endblock %}
     </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-github" href="https://github.com/dhruvkp090"><i
+                                class="fa fa-github fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com/dhruv_patwari/"><i
+                                class="fa fa-instagram fa-lg"></i> </a>
+                        <a class="btn btn-social-icon btn-linkedin"
+                            href="https://www.linkedin.com/in/dhruvkumarpatwari/"><i
+                                class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/dhruv.patwari.9"><i
+                                class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/_dhruvk"><i
+                                class="fa fa-twitter fa-lg"></i> </a>
+
+                        <a class="btn btn-social-icon" href="mailto:dhruvk090@gmail.com"><i
+                                class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>Made by Dhruv Kumar Patwari</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

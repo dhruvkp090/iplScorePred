@@ -1,20 +1,51 @@
+<style>
+    .text {
+        margin-top: 15px;
+    }
+
+    .h1text {
+        font-size: 100px;
+    }
+
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
 {% extends 'index.html' %}
 
 {% block content %}
 
-
 <div class="row">
-    <div class="col-12">
-        <h1>{{low}} - {{high}}</h1>
+    <div class="col-md-6 offset-md-3">
+        <div class=" card text-center" style="margin-top: 30%; margin-left: 40px;">
+            <div class="card-header">
+                <h1 style="font-size: 18px; font-weight: 750; font-family: ' apercu',sans-serif; margin-right: 20px;">
+                    {{batting}} will score in between
+                </h1>
+            </div>
+            <div class="card-title">
+                <div class="text">
+                    <h1 class="h1text">{{low}} - {{high}}</h1>
+                </div>
+            </div>
+            <div class="card-footer">
+                <p>
+                    <a href="{% url 'index' %}">Predict another Score</a>
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 
 
+
 <div class="row">
     <div class="col-12">
-        <p>
-            <a href="{% url 'index' %}">Predict another Score</a>
-        </p>
+
     </div>
 </div>
 

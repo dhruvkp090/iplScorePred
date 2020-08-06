@@ -1,84 +1,99 @@
+<style>
+    label {
+        font-weight: 700;
+    }
+</style>
+
 {% extends 'index.html' %}
 
 {% block content %}
-<div class="row">
+<div class="row" style="margin-top: 5%;">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <form action="/result/" method="POST">{% csrf_token %}
-            <div class="form-group row">
-                <label for="bat_team" class="col-md-3 col-form-label">Batting Team</label>
-                <div class="col-md-9">
-                    <select class="custom-select" id="bat_team" name="bat_team">
-                        <option selected disabled>Select Batting Team</option>
-                        {% for team in teams %}
-                        <option value="{{team}}">{{team}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+        <div class="card">
+            <div class="card-header">
+                <h1 style="font-size: 38px; font-weight: 800; font-family: lexa-decand,sans-serif; margin-right: 20px;">
+                    IPL Score Predictor
+                </h1>
             </div>
-            <div class="form-group row">
-                <label for="bowl_team" class="col-md-3 col-form-label">Bowling Team</label>
-                <div class="col-md-9">
-                    <select class="custom-select" id="bowl_team" name="bowl_team">
-                        <option selected disabled>Select Bowling Team</option>
-                        {% for team in teams %}
-                        <option value="{{team}}">{{team}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+            <div class="card-body">
+                <form action="/result/" method="POST">{% csrf_token %}
+                    <div class="form-group row">
+                        <label for="bat_team" class="col-md-3 col-form-label">Batting Team</label>
+                        <div class="col-md-9">
+                            <select class="custom-select" id="bat_team" name="bat_team">
+                                <option selected disabled>Select Batting Team</option>
+                                {% for team in teams %}
+                                <option value="{{team}}">{{team}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="bowl_team" class="col-md-3 col-form-label">Bowling Team</label>
+                        <div class="col-md-9">
+                            <select class="custom-select" id="bowl_team" name="bowl_team">
+                                <option selected disabled>Select Bowling Team</option>
+                                {% for team in teams %}
+                                <option value="{{team}}">{{team}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="venue" class="col-md-3 col-form-label">Ground</label>
+                        <div class="col-md-9">
+                            <select class="custom-select" id="venue" name="venue">
+                                <option selected disabled>Select Ground</option>
+                                {% for venue in venues %}
+                                <option value="{{venue}}">{{venue}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="overs" class="col-md-3 col-form-label">Overs Played</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" id="overs" name="overs"
+                                placeholder="Overs played > 5.0" step="0.01">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="runs" class="col-md-3 col-form-label">Runs Scored</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" id="runs" name="runs" placeholder="Runs Scored">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="wickets" class="col-md-3 col-form-label">Wickets Fallen</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" id="wickets" name="wickets"
+                                placeholder="Wickets Fallen">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="runs_in_prev_5" class="col-md-3 col-form-label">Runs Scored in Last 5 Overs</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" id="runs_in_prev_5" name="runs_in_prev_5"
+                                placeholder="Runs Scored in Last 5 Overs">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="wickets_in_prev_5" class="col-md-3 col-form-label">Wickets Lost in last 5
+                            Overs</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" id="wickets_in_prev_5" name="wickets_in_prev_5"
+                                placeholder="Wickets Lost in last 5 Overs">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-md-3 col-md-9">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;"> Predict Score </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group row">
-                <label for="venue" class="col-md-3 col-form-label">Ground</label>
-                <div class="col-md-9">
-                    <select class="custom-select" id="venue" name="venue">
-                        <option selected disabled>Select Ground</option>
-                        {% for venue in venues %}
-                        <option value="{{venue}}">{{venue}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="overs" class="col-md-3 col-form-label">Overs Played</label>
-                <div class="col-md-9">
-                    <input type="number" class="form-control" id="overs" name="overs" placeholder="Overs played > 5.0"
-                        step="0.01">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="runs" class="col-md-3 col-form-label">Runs Scored</label>
-                <div class="col-md-9">
-                    <input type="number" class="form-control" id="runs" name="runs" placeholder="Runs Scored">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="wickets" class="col-md-3 col-form-label">Wickets Fallen</label>
-                <div class="col-md-9">
-                    <input type="number" class="form-control" id="wickets" name="wickets" placeholder="Wickets Fallen">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="runs_in_prev_5" class="col-md-3 col-form-label">Runs in Previous 5 Overs</label>
-                <div class="col-md-9">
-                    <input type="number" class="form-control" id="runs_in_prev_5" name="runs_in_prev_5"
-                        placeholder="Runs Scored in Previous 5 Overs">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="wickets_in_prev_5" class="col-md-3 col-form-label">Wickets in Previous 5
-                    Overs</label>
-                <div class="col-md-9">
-                    <input type="number" class="form-control" id="wickets_in_prev_5" name="wickets_in_prev_5"
-                        placeholder="Wickets Fallen in Previous 5 Overs">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="offset-md-3 col-md-7">
-                    <button type="reset" class="btn btn-danger"> Reset Form </button>
-                    <button type="submit" class="btn btn-primary"> Predict Score </button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
