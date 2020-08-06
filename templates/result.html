@@ -2,12 +2,24 @@
 
 {% block content %}
 
-<h1>{{low}} - {{high}}</h1>
 
-<br>
-<p>
-    <a href="{% url 'index' %}">Predict another Score</a>
-</p>
+<div class="row">
+    <div class="col-12">
+        <h1>{{low}} - {{high}}</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <p>
+            <a href="{% url 'index' %}">Predict another Score</a>
+        </p>
+    </div>
+</div>
+
+
+
 
 
 
