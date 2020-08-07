@@ -25,7 +25,7 @@ print(BASE_DIR)
 # SECRET_KEY = '#789^-dbtfpl$c7l-#8)ynza4csdngc%l-ie3@+yrthj50gk6w1*'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = (os.environ.get('DEBUG') == 'True')
 
 ALLOWED_HOSTS = ['https://ipl-1st-innings-score.herokuapp.com']
 
