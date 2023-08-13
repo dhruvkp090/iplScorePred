@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG') == 'True')
 
-ALLOWED_HOSTS = ['https://ipl-1st-innings-score.herokuapp.com']
+ALLOWED_HOSTS = ['https://ipl-score-predictor-0uop.onrender.com']
 
 
 # Application definition
